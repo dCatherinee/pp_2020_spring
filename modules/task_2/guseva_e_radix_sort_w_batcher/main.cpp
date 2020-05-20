@@ -1,8 +1,9 @@
 // Copyright 2020 Guseva Catherine
 #include <gtest/gtest.h>
-#include "./radix_sort_w_batcher.h"
 #include <vector>
 #include <algorithm>
+#include <iostream>
+#include "./radix_sort_w_batcher.h"
 
 TEST(Radix_Sort_W_Batcher, Test_CorrectSort) {
     std::vector<int> vec = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
