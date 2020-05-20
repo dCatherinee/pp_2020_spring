@@ -7,6 +7,7 @@
 #include <iostream>
 #include <ctime>
 #include <random>
+#include <utility>
 
 #define THREADS 4
 
@@ -99,8 +100,7 @@ std::vector<int> evenBatch(std::vector<int> vec1, std::vector<int> vec2) {
         if (vec1[i1] <= vec2[i2]) {
             res[i] = vec1[i1];
             i1 += 2;
-        }
-        else {
+        } else {
             res[i] = vec2[i2];
             i2 += 2;
         }
@@ -113,8 +113,7 @@ std::vector<int> evenBatch(std::vector<int> vec1, std::vector<int> vec2) {
             res[i] = vec2[l];
             i++;
         }
-    }
-    else {
+    } else {
 #pragma omp parallel for num_threads(THREADS)
         for (int l = i1; l < size1; l += 2) {
             res[i] = vec1[l];
@@ -138,8 +137,7 @@ std::vector<int> oddBatch(std::vector<int> vec1, std::vector<int> vec2) {
         if (vec1[i1] <= vec2[i2]) {
             res[i] = vec1[i1];
             i1 += 2;
-        }
-        else {
+        } else {
             res[i] = vec2[i2];
             i2 += 2;
         }
@@ -152,8 +150,7 @@ std::vector<int> oddBatch(std::vector<int> vec1, std::vector<int> vec2) {
             res[i] = vec2[l];
             i++;
         }
-    }
-    else {
+    } else {
 #pragma omp parallel for num_threads(THREADS)
         for (int l = i1; l < size1; l += 2) {
             res[i] = vec1[l];
